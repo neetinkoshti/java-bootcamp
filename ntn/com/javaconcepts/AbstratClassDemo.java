@@ -1,7 +1,8 @@
 package ntn.com.javaconcepts;
 
 /**
- *  while overriding a method from parent to child , make sure its access specifier can be same or above
+ *  while overriding a method from parent to child ,
+ *  make sure its access specifier can be same or above
  *  parent class - default
  *  child class - default, protected , public
  *
