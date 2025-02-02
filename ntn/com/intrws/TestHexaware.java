@@ -1,4 +1,4 @@
-package ntn.com;
+package ntn.com.intrws;
 
 import java.util.*;
 import java.util.function.Function;
