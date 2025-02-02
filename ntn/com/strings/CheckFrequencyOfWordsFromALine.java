@@ -1,4 +1,4 @@
-package ntn.com;
+package ntn.com.strings;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
