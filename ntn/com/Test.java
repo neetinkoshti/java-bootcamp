@@ -1,33 +1,20 @@
-package ntn.com;
+package com.ntn.intws;
 
-import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.HashSet;
 
 public class Test {
 
     public static void main(String[] args) {
 
-        String str = "nitin as a java programmer";
+        execute();
+    }
 
-        Set<String> set = new HashSet<>();
-
-        String str1 = Arrays.stream(str.replace(" ","").split(""))
-                .filter(a-> !set.add(a))
-                .findFirst().get();
-
-        System.out.println(str1);
-
-        Map<String, Long> collect = Arrays.stream(str.replace(" ","").split(""))
-                .filter(a-> !set.add(a))
-
-                .collect(Collectors.groupingBy(Function.identity() , LinkedHashMap::new, Collectors.counting()));
-
-        Map.Entry<String, Long> stringLongEntry1 = collect.entrySet().stream()
-                .filter(stringLongEntry -> stringLongEntry.getValue() > 1)
-
-                .findFirst().get();
-
-        System.out.println(stringLongEntry1.getKey() + "," + stringLongEntry1.getValue());
+    public static void execute(){
+        HashSet<Short> set = new HashSet<>();
+        for(short i=0 ; i< 100;i++){
+            set.add(i);
+            set.remove(i-1);
+        }
+        System.out.println(set.size());
     }
 }
