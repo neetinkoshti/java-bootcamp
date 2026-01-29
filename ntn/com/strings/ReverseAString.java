@@ -1,6 +1,9 @@
 package ntn.com.strings;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -24,6 +27,8 @@ public class ReverseAString {
         recersiveWay(originalString);
 
         reverseStringUsingJava8SecondWay(originalString);
+
+        System.out.println("\n8. Reverse a String in a List: "+reverseStringInTheList(Arrays.asList("apple","banana","orange")));
 
 
     }
@@ -128,6 +133,15 @@ public class ReverseAString {
             sb.append(stacks.pop());
         }
         return sb.toString();
+    }
+
+    private static List<String> reverseStringInTheList(List<String> words){
+
+        List<String> reversedWordsInList = words.stream()
+                .map(ReverseAString::usingSwapOfChar)
+                .collect(Collectors.toList());
+
+        return reversedWordsInList;
     }
 
 }
