@@ -1,5 +1,6 @@
 package ntn.com.strings;
 
+import java.util.Stack;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -9,14 +10,21 @@ public class ReverseAString {
 
         String originalString = "i am a java programmer";
 
-        System.out.println("Reverse String using order of N complexity : "+reverseString(originalString));
+        System.out.println("\n1. Recursive Way to reverse a string : "+recursiveWayToReverseAString(originalString));
 
-        System.out.println("Reverse a string using Java 8 : "+reverseStringUsingJava8(originalString));
+        System.out.println("\n2. Reverse A string using swap of chars :"+usingSwapOfChar(originalString));
 
-        System.out.println("Reverse a String using recersion : ");
+        System.out.println("\n3. Reverse A string using stack: "+ reverseAStringUsingStack(originalString));
+
+        System.out.println("\n4. Reverse String using order of N2 complexity : "+reverseString(originalString));
+
+        System.out.println("\n5. Reverse a string using Java 8 : "+reverseStringUsingJava8(originalString));
+
+        System.out.println("\n6. Reverse a String using recersion : ");
         recersiveWay(originalString);
 
         reverseStringUsingJava8SecondWay(originalString);
+
 
     }
 
@@ -53,7 +61,7 @@ public class ReverseAString {
      * @param originalString
      */
     private static void reverseStringUsingJava8SecondWay(String originalString){
-        System.out.println("\n Reverse a String using Java 8 second way");
+        System.out.println("\n7. Reverse a String using Java 8 second way");
         char[] charArray = originalString.toCharArray();
 
         IntStream.range(0,charArray.length)
@@ -72,6 +80,54 @@ public class ReverseAString {
             System.out.print(originalString.charAt(originalString.length()-1));
             recersiveWay(originalString.substring(0,originalString.length()-1));
         }
+    }
+
+    private static String recursiveWayToReverseAString(String originalString){
+
+        if(originalString==null || originalString.length()==1){
+            return originalString;
+        }
+        else{
+           return recursiveWayToReverseAString(originalString.substring(1)) + originalString.charAt(0);
+        }
+    }
+
+    private static String usingSwapOfChar(String originalString){
+
+        char[] charArray  =  originalString.toCharArray();
+
+        int left = 0;
+        int right = charArray.length-1;
+
+        while(left < right){
+
+            char ch = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = ch;
+
+            left ++;
+            right --;
+
+        }
+
+        return new String(charArray);
+    }
+
+    private static String reverseAStringUsingStack(String originalString){
+
+        Stack<Character> stacks = new Stack<>();
+
+        for(int i=0;i<originalString.length();i++){
+
+            stacks.push(originalString.charAt(i));
+        }
+
+        StringBuilder sb = new StringBuilder();
+        while(!stacks.isEmpty()){
+
+            sb.append(stacks.pop());
+        }
+        return sb.toString();
     }
 
 }
