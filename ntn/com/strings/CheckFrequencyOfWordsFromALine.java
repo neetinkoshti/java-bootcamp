@@ -10,14 +10,16 @@ public class CheckFrequencyOfWordsFromALine {
 
     public static void main(String[] args) {
 
-        String line = "this is nitin this is java developer";
+//        String line = "this is nitin this is java developer";
+
+        String line = "java dev";
 
         checkFrequency(line);
     }
 
     private static void checkFrequency(String line){
 
-        Map<String,Long> map = Arrays.stream(line.split(" "))
+        Map<String,Long> map = Arrays.stream(line.split(""))
                 .collect(Collectors.groupingBy(Function.identity() , LinkedHashMap::new , Collectors.counting()));
 
         System.out.println(map);
