@@ -16,5 +16,6 @@ public class Test {
             set.remove(i-1);
         }
         System.out.println(set.size());
+        System.out.println(""test");
     }
 }
